@@ -218,28 +218,36 @@ button:hover {
 }
 
 .services-list-item {
-    height: 100px;
+    position: relative;
+    text-align: center;
+    height: 80px;
     max-width: 400px;
     background-color: white;
     margin: 10px auto;
+    box-shadow: 0 4px 5px 2px rgba(0, 0, 0, 0.5);
 }
 
 .services-list-name {
+    position: absolute;
+    left: 40%;
+    top: 50%;
+    transform: translate(-50%, -50%);
     color: black;
-    font-size: 13px;
+    font-size: 1.1em;
     font-weight: 700;
     display: inline-block;
-    width: 80%;
-    align-content: center;
 }
 
 .services-list-img {
+    position: absolute;
+    width: 25%;
+    height: 100%;
+    right: 0;
+    padding-top: 15px;
     border-left: 1px solid black;
     height: 100%;
+    margin: auto;
     display: inline-block;
-}
-
-.services-list-img img {
 }
 
 
