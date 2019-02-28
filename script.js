@@ -20,3 +20,9 @@ const menuItems = document.querySelectorAll('.menu-item');
 for (let item of menuItems) {
     item.addEventListener('click', hideMenu);
 }
+
+const loadYear = () => {
+      const dateNow = new Date();
+      document.getElementById('date').innerHTML = dateNow.getFullYear();
+};
+window.onload = loadYear;
