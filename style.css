@@ -249,7 +249,7 @@ button:hover {
     height: 100%;
     right: 0;
     padding-top: 15px;
-    border-left: 1px solid black;
+    border-left: 0.5px solid black;
     height: 100%;
     margin: auto;
     display: inline-block;
@@ -419,23 +419,38 @@ button:hover {
     grid-column: 2/12;
     grid-row: 3/5;
 }
+
 .blog-pic {
     position: relative;
+    -webkit-box-shadow: inset 0px -110px 110px -10px rgba(0, 0, 0, 0.75);
+    -moz-box-shadow: inset 0px -110px 110px -10px rgba(0, 0, 0, 0.75);
+    box-shadow: inset 0px -110px 110px -10px rgba(0, 0, 0, 0.75);
 }
 
 .date {
     position: absolute;
-    top: 20px;
-    left: 20px;
-    font-size: 2em;
+    top: 25px;
+    left: 25px;
+    font-size: 1.4em;
+    text-transform: uppercase;
+    font-weight: 900;
+    line-height: 28px;
+    letter-spacing: 1px;
+    background-color: rgba(0, 0, 0, 0.4);
+    border-radius: 5px;
+    padding: 5px;
+    text-align: center;
+}
+
+.date-nr {
+    font-size: 1.6em;
     font-weight: 700;
-    background-color: black;
 }
 
 .caption {
     position: absolute;
-    bottom: 30px;
-    left: 10px;
+    bottom: 40px;
+    left: 15px;
     width: 80%;
     font-size: 1.2em;
     font-weight: 700;
@@ -443,8 +458,9 @@ button:hover {
 
 .caption-small {
     position: absolute;
-    bottom: 5px;
-    left: 10px;
+    bottom: 10px;
+    left: 15px;
+    font-size: .8em;
 }
 
 .first-pic {
