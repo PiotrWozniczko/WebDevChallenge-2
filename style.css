@@ -418,12 +418,12 @@ button:hover {
 
 @media (orientation: landscape) {
     .close {
-        top: -8%;
+        top: -9%;
         right: 0;
     }
 
     .dots {
-        bottom: 0;
+        bottom: 1px;
     }
 }
 
