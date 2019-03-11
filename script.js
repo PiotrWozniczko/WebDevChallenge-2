@@ -25,16 +25,12 @@ for (let item of menuItems) {
     item.addEventListener('click', hideMenu);
 }
 
-
-
 // rok do stopki
 const loadYear = () => {
       const dateNow = new Date();
       document.getElementById('date').innerHTML = dateNow.getFullYear();
 };
 window.onload = loadYear;
-
-
 
 // gallery modal
 const galleryModal = document.querySelector('.gallery-modal');
@@ -58,8 +54,6 @@ window.addEventListener('click', function(e){
    if (e.target == galleryModal) hideModal();
 });
 
-
-
 // pobieram liste zdjec
 const images = [
     'img/gallery1.jpg',
@@ -75,7 +69,7 @@ const slide = document.querySelector('.slide');
 
 // funkcja przesuwajaca nastepne zdjecie
 const nextSlide = () => {
-    currentImage < images.length - 1 ? currentImage++ : currentImage = 0;
+    currentImage < images.length - 1 ? currentImage++ : currentImage = 0; // jshint ignore:line
     slide.src = images[currentImage];
 };
 const next = document.querySelector('.next');
@@ -83,7 +77,7 @@ next.addEventListener('click', nextSlide);
 
 // funkcja przesuwajaca poprzednie zdjecie
 const prevSlide = () => {
-    currentImage > 0 ? currentImage-- : currentImage = images.length - 1;
+    currentImage > 0 ? currentImage-- : currentImage = images.length - 1; // jshint ignore:line
     slide.src = images[currentImage];
 };
 const prev = document.querySelector('.prev');
@@ -111,8 +105,6 @@ dots.childNodes.forEach((item, index) => {
         currentImage = index;
     });
 });
-
-
 
 // pierwszy sposob, niezbyt dobry ale dzialal :)
 // for (i = 0; i < images.length; i++) {
