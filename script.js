@@ -25,6 +25,11 @@ for (let item of menuItems) {
     item.addEventListener('click', hideMenu);
 }
 
+// chowam menu kiedy strona jest scrollowana
+window.addEventListener('scroll', hideMenu);
+
+
+
 // rok do stopki
 const loadYear = () => {
       const dateNow = new Date();
