@@ -1,33 +1,56 @@
-// pobieram nav i ustawiam wysokosc schowanego menu
+// wyciagam nav do zasiegu globalnego, bo uzywam w kilku miejscach
 const nav = document.querySelector('.nav');
-nav.style.height = '3.5em';
-const showMenu = () => {
-    nav.style.backgroundColor = 'rgba(255, 255, 255, 1)';
-    nav.style.height = '19em';
-};
-
-const hideMenu = () => {
-    nav.style.backgroundColor = 'rgba(255, 255, 255, 0.9)';
+// zachowanie nawigacji zamykam w funkcjach zeby pozniej porownac z media query
+const mobileMenu = () => {
     nav.style.height = '3.5em';
+    const showMenu = () => {
+        nav.style.backgroundColor = 'rgba(255, 255, 255, 1)';
+        nav.style.height = '19em';
+    };
+
+    const hideMenu = () => {
+        nav.style.backgroundColor = 'rgba(255, 255, 255, 0.9)';
+        nav.style.height = '3.5em';
+    };
+    // pobieram hamburgera
+    const toggleMenu = document.querySelector('.toggle-menu');
+
+    // ustawiam klik na haburgera
+    toggleMenu.addEventListener('click', function (e) {
+        e.preventDefault();
+        nav.style.height == '3.5em' ? showMenu() : hideMenu(); // jshint ignore:line
+    });
+
+    // chowam menu po kliknieciu w jedna z opcji
+    const menuItems = document.querySelectorAll('.menu-item');
+    for (let item of menuItems) {
+        item.addEventListener('click', hideMenu);
+    }
+
+    // chowam menu kiedy strona jest scrollowana
+    window.addEventListener('scroll', hideMenu);
 };
-// pobieram hamburgera
-const toggleMenu = document.querySelector('.toggle-menu');
+const desktopMenu = () => {
+    const scrollStart = () => {
+        if (window.pageYOffset > 100) {
+            nav.style.height = '5em';
+            nav.style.backgroundColor = 'black';
+        } else {
+            nav.style.backgroundColor = 'rgba(255, 255, 255, 0.9)';
+            nav.style.height = '4em';
+        }
+    };
+    window.addEventListener('scroll', scrollStart);
+};
 
-// ustawiam haburgera na klik
-toggleMenu.addEventListener('click', function(e){
-    e.preventDefault();
-    nav.style.height == '3.5em' ? showMenu() : hideMenu(); // jshint ignore:line
-});
+// wysuwanie nawigacji tylko dla width ponizej 768px, dla wiekszych zmiana rozmaru przy scrollowaniu
+const widthChange = () => {
+    window.matchMedia("(max-width: 768px)").matches ? mobileMenu() : desktopMenu();// jshint ignore:line
+};
+// listner caly czas sprawdza jaka jest wiekosc ekranu
 
-// chowam menu po kliknieciu w jedna z opcji
-const menuItems = document.querySelectorAll('.menu-item');
-for (let item of menuItems) {
-    item.addEventListener('click', hideMenu);
-}
-
-// chowam menu kiedy strona jest scrollowana
-window.addEventListener('scroll', hideMenu);
-
+// mediaQuery.addListener(widthChange);
+window.addEventListener('scroll', widthChange);
 
 
 // rok do stopki
@@ -125,4 +148,4 @@ dots.childNodes.forEach((item, index) => {
 //         slide.src = images[index];
 //         currentImage = index;
 //     });
-//  }
+// };
