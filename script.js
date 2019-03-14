@@ -1,5 +1,7 @@
 // wyciagam nav do zasiegu globalnego, bo uzywam w kilku miejscach
 const nav = document.querySelector('.nav');
+const navList = document.querySelector('.nav-list');
+const logo = document.querySelector('.logo');
 // zachowanie nawigacji zamykam w funkcjach zeby pozniej porownac z media query
 const mobileMenu = () => {
     nav.style.height = '3.5em';
@@ -29,15 +31,22 @@ const mobileMenu = () => {
 
     // chowam menu kiedy strona jest scrollowana
     window.addEventListener('scroll', hideMenu);
+
 };
 const desktopMenu = () => {
     const scrollStart = () => {
         if (window.pageYOffset > 100) {
-            nav.style.height = '5em';
-            nav.style.backgroundColor = 'black';
-        } else {
-            nav.style.backgroundColor = 'rgba(255, 255, 255, 0.9)';
             nav.style.height = '4em';
+            nav.style.backgroundColor = 'rgba(255, 255, 255, 0.9';
+            navList.style.fontSize = '1em';
+            logo.style.fontSize = '3em';
+            logo.style.paddingLeft = '0.2em';
+        } else {
+            nav.style.backgroundColor = 'rgba(255, 255, 255, 0)';
+            nav.style.height = '5em';
+            navList.style.fontSize = '1.1em';
+            logo.style.fontSize = '3.2em';
+            logo.style.paddingLeft = '0.5em';
         }
     };
     window.addEventListener('scroll', scrollStart);
@@ -47,10 +56,8 @@ const desktopMenu = () => {
 const widthChange = () => {
     window.matchMedia("(max-width: 768px)").matches ? mobileMenu() : desktopMenu();// jshint ignore:line
 };
-// listner caly czas sprawdza jaka jest wiekosc ekranu
-
-// mediaQuery.addListener(widthChange);
-window.addEventListener('scroll', widthChange);
+// porownaj wiekosc ekranu po zaladowaniu strony
+document.addEventListener('DOMContentLoaded', widthChange);
 
 
 // rok do stopki
