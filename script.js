@@ -52,7 +52,7 @@ const desktopMenu = () => {
     window.addEventListener('scroll', scrollStart);
 };
 
-// wysuwanie nawigacji tylko dla width ponizej 768px, dla wiekszych zmiana rozmaru przy scrollowaniu
+// wysuwanie nawigacji tylko dla width ponizej 768px
 const widthChange = () => {
     window.matchMedia("(max-width: 768px)").matches ? mobileMenu() : desktopMenu();// jshint ignore:line
 };
@@ -65,7 +65,7 @@ const loadYear = () => {
       const dateNow = new Date();
       document.getElementById('date').innerHTML = dateNow.getFullYear();
 };
-window.onload = loadYear;
+document.addEventListener('DOMContentLoaded', loadYear);
 
 // gallery modal
 const galleryModal = document.querySelector('.gallery-modal');
@@ -85,7 +85,7 @@ const closeModal = document.querySelector('.close');
 closeModal.addEventListener('click', hideModal);
 
 // klik gdziekolwiek na tlo chowa modal
-window.addEventListener('click', function(e){
+window.addEventListener('click', e => {
    if (e.target == galleryModal) hideModal();
 });
 
