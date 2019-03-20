@@ -38,15 +38,15 @@ const desktopMenu = () => {
         if (window.pageYOffset > 100) {
             nav.style.height = '4em';
             nav.style.backgroundColor = 'rgba(255, 255, 255, 0.9';
-            navList.style.fontSize = '1em';
+            navList.style.fontSize = '0.9em';
             logo.style.fontSize = '3em';
             logo.style.paddingLeft = '0.2em';
         } else {
             nav.style.backgroundColor = 'rgba(255, 255, 255, 0)';
             nav.style.height = '5em';
-            navList.style.fontSize = '1.1em';
+            navList.style.fontSize = '1em';
             logo.style.fontSize = '3.2em';
-            logo.style.paddingLeft = '0.5em';
+            logo.style.paddingLeft = '0.3em';
         }
     };
     window.addEventListener('scroll', scrollStart);
